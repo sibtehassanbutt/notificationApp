@@ -6,9 +6,14 @@ from plyer import notification
 from tkinter import Tk, Label, Button, Entry, StringVar, messagebox
 
 def resource_path(relative_path):
-    """ Get the absolute path to a resource, works for PyInstaller """
-    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    """ Get the absolute path to a resource, works for dev and PyInstaller """
+    try:
+        # PyInstaller creates a temporary folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
     return os.path.join(base_path, relative_path)
+
 
 class NotificationApp:
     def __init__(self, root):
