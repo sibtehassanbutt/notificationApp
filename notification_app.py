@@ -42,7 +42,7 @@ class NotificationApp:
         
         # Notification Message Input
         Label(root, text="Notification Message:").pack(pady=10)
-        self.message = StringVar(value="Take a break, stretch, or drink water.")
+        self.message = StringVar(value="أَشْهَدُ أَنَّ اللَّهَ أَكْبَرُ")
         self.message_entry = Entry(root, textvariable=self.message, width=30)
         self.message_entry.pack(pady=5)
         
